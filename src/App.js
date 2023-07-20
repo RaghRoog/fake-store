@@ -23,6 +23,10 @@ function App() {
           <Route path="/" element={<Home/>}/>
         </Routes>
       </BrowserRouter>
+      <footer>
+        <p>This is not real store.</p>
+        <p>App was made with DummyJSON API</p>
+      </footer>
     </div>
   );
 }

@@ -1,7 +1,14 @@
-@import './styles/variables.scss', './styles/nav.scss';
+@import './styles/variables.scss', './styles/nav.scss', './styles/home.scss';
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+footer{
+    background-color: orange;    
+    margin-top: 35px;
+    text-align: center;
+    font-size: 18px;
 }
