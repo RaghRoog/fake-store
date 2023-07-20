@@ -3,8 +3,8 @@
 export default function Home() {
 
     return(
-        <div>
-            home
+        <div className="home">
+            <div className="carousel-section"></div>
         </div>
     )
 }
