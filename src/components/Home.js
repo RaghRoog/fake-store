@@ -1,9 +1,11 @@
+import Nav from "./Nav"
 
 export default function Home() {
 
     return(
         <div>
-            Home
+            <Nav/>
+            home
         </div>
     )
 }
