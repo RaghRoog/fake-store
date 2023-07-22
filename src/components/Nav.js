@@ -1,7 +1,9 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
-export default function Nav({ getCategory }) {
+export default function Nav() {
+
+    const navigate = useNavigate()
 
     let [catagoriesClicked, setCategoriesClicked] = useState(false)
 
@@ -16,28 +18,22 @@ export default function Nav({ getCategory }) {
         }
     }
 
+    function setCategory(category){
+        localStorage.setItem('category', category)
+        navigate(`/categories/${category}`)
+        window.location.reload()
+    }
+
     return(
         <div className="nav">
             <div onClick={()=>changeDisplay('categories-container')} className="categories">Categories
                 <div className="categories-container">
-                    <Link to='/categories/smartphones'>
-                        <div onClick={()=>getCategory('smartphones')} className="category">Smartphones</div>
-                    </Link>
-                    <Link to='/categories/laptops'>
-                        <div onClick={()=>getCategory('laptops')} className="category">Laptops</div>
-                    </Link>
-                    <Link to='/categories/fragrances'>
-                        <div onClick={()=>getCategory('fragrances')} className="category">Fragrances</div>
-                    </Link>
-                    <Link to='/categories/skincare'>
-                        <div onClick={()=>getCategory('skincare')} className="category">Skincare</div>
-                    </Link>
-                    <Link to='/categories/groceries'>
-                        <div onClick={()=>getCategory('groceries')} className="category">Groceries</div>
-                    </Link>
-                    <Link to='/categories/home-decoration'>
-                        <div onClick={()=>getCategory('home decoration')} className="category">Home decoration</div>
-                    </Link>
+                    <div onClick={()=>setCategory('smartphones')} className="category">Smartphones</div>
+                    <div onClick={()=>setCategory('laptops')} className="category">Laptops</div>
+                    <div onClick={()=>setCategory('fragrances')} className="category">Fragrances</div>
+                    <div onClick={()=>setCategory('skincare')} className="category">Skincare</div>
+                    <div onClick={()=>setCategory('groceries')} className="category">Groceries</div>
+                    <div onClick={()=>setCategory('home-decoration')} className="category">Home decoration</div>
                 </div>
             </div>
             <Link to='/'><p className="name">FakeStore</p></Link>

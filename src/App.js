@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.scss'
 import Home from "./components/Home";
@@ -7,20 +6,14 @@ import CategoryPage from "./components/CategoryPage";
 
 function App() {
 
-  let [category, setCategory] = useState('')
-
-  function getCategory(category) {
-    setCategory(category)
-    console.log(category)
-  }
 
   return (
     <div>
       <BrowserRouter>
-        <Nav getCategory={getCategory}/>
+        <Nav/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/categories/:category" element={<CategoryPage categ={category}/>}/>
+          <Route path="/categories/:category" element={<CategoryPage/>}/>
         </Routes>
       </BrowserRouter>
       <footer>
