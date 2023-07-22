@@ -1,7 +1,12 @@
+import { useEffect } from "react"
 
 export default function CategoryPage({ categ }) {
 
-    
+    useEffect(() => {
+        fetch(`https://dummyjson.com/products/category/${categ}`)
+        .then(res => res.json())
+        .then(console.log);
+    }, [])
 
     return(
         <div className="category-page">
