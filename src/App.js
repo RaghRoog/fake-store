@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.scss'
 import Home from "./components/Home";
@@ -7,22 +7,20 @@ import CategoryPage from "./components/CategoryPage";
 
 function App() {
 
-  useEffect(()=>{
-    // fetch('https://dummyjson.com/products/categories')
-    // .then(res => res.json())
-    // // .then(res => res.products.forEach(element => {
-    // //   console.log(element.category)
-    // // }))
-    // .then(console.log)
-  }, [])
+  let [category, setCategory] = useState('')
+
+  function getCategory(category) {
+    setCategory(category)
+    console.log(category)
+  }
 
   return (
     <div>
       <BrowserRouter>
-        <Nav/>
+        <Nav getCategory={getCategory}/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/categories/:category" element={<CategoryPage/>}/>
+          <Route path="/categories/:category" element={<CategoryPage categ={category}/>}/>
         </Routes>
       </BrowserRouter>
       <footer>
