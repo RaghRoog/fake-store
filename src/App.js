@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.scss'
 import Home from "./components/Home";
 import Nav from "./components/Nav";
+import CategoryPage from "./components/CategoryPage";
 
 function App() {
 
@@ -17,10 +18,11 @@ function App() {
 
   return (
     <div>
-      <Nav/>
       <BrowserRouter>
+        <Nav/>
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/categories/:category" element={<CategoryPage/>}/>
         </Routes>
       </BrowserRouter>
       <footer>

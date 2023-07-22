@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 export default function Nav() {
 
@@ -19,15 +20,15 @@ export default function Nav() {
         <div className="nav">
             <div onClick={()=>changeDisplay('categories-container')} className="categories">Categories
                 <div className="categories-container">
-                    <div className="category">Smartphones</div>
-                    <div className="category">Laptops</div>
-                    <div className="category">Fragrances</div>
-                    <div className="category">Skincare</div>
-                    <div className="category">Groceries</div>
-                    <div className="category">Home decoration</div>
+                    <Link to='/categories/smartphones'><div className="category">Smartphones</div></Link>
+                    <Link to='/categories/laptops'><div className="category">Laptops</div></Link>
+                    <Link to='/categories/fragrances'><div className="category">Fragrances</div></Link>
+                    <Link to='/categories/skincare'><div className="category">Skincare</div></Link>
+                    <Link to='/categories/groceries'><div className="category">Groceries</div></Link>
+                    <Link to='/categories/home-decoration'><div className="category">Home decoration</div></Link>
                 </div>
             </div>
-            <p className="name">FakeStore</p>
+            <Link to='/'><p className="name">FakeStore</p></Link>
             <div className="account">Account</div>
         </div>
     )
