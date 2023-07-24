@@ -1,0 +1,13 @@
+.product-card{
+    width: min(300px, 80vw);
+    padding: 8px;
+    border: 2px solid red;
+    text-align: center;
+    .img-container{
+        border: 2px solid orange;
+        height: 150px;
+    }
+    .product-info{
+        border: 2px solid blue;
+    }
+}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import ProductCard from "./ProductCard";
 
 export default function CategoryPage() {
 
@@ -39,7 +40,17 @@ export default function CategoryPage() {
         <div className="category-page">
             <h1 className="cat-name">{category}</h1>
             <div className="filters-container"></div>
-            <div className="products-container"></div>
+            <div className="products-container">
+                <ProductCard></ProductCard>
+                <ProductCard></ProductCard>
+                <ProductCard></ProductCard>
+                <ProductCard></ProductCard>
+                <ProductCard></ProductCard>
+                <ProductCard></ProductCard>
+                <ProductCard></ProductCard>
+                <ProductCard></ProductCard>
+                <ProductCard></ProductCard>
+            </div>
         </div>
     )
 }
