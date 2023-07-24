@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react"
 import ProductCard from "./ProductCard";
+import getData from '../functions/getData'
 
 export default function CategoryPage() {
 
+    let [products, setProducts] = useState([])
+
     useEffect(() => {
-        fetch(`https://dummyjson.com/products/category/${localStorage.getItem('category')}`)
-        .then(res => res.json())
-        .then(console.log);
+        getData(`https://dummyjson.com/products/category/${localStorage.getItem('category')}`)
+         .then(result => {
+            setProducts(result.products)
+            console.log(result)
+        })
         pageHeading()
     }, [])
 
@@ -41,15 +46,7 @@ export default function CategoryPage() {
             <h1 className="cat-name">{category}</h1>
             <div className="filters-container"></div>
             <div className="products-container">
-                <ProductCard></ProductCard>
-                <ProductCard></ProductCard>
-                <ProductCard></ProductCard>
-                <ProductCard></ProductCard>
-                <ProductCard></ProductCard>
-                <ProductCard></ProductCard>
-                <ProductCard></ProductCard>
-                <ProductCard></ProductCard>
-                <ProductCard></ProductCard>
+                {products.map(item => ProductCard(item))}
             </div>
         </div>
     )
