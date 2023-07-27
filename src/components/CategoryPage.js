@@ -10,7 +10,6 @@ export default function CategoryPage() {
         getData(`https://dummyjson.com/products/category/${localStorage.getItem('category')}`)
          .then(result => {
             setProducts(result.products)
-            console.log(result)
         })
         pageHeading()
     }, [])
