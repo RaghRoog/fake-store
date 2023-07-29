@@ -1,19 +1,29 @@
 @import './styles/variables.scss', './styles/nav.scss', './styles/home.scss', 
         './styles/categoryPage.scss', './styles/productCard.scss', './styles/productPage.scss';
 
+html{
+    font-size: 16px;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
+button{
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+}
 footer{
     background-color: orange;    
     margin-top: 35px;
     text-align: center;
     font-size: 18px;
 }
-
 a{
     text-decoration: none;
     color: black;

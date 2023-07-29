@@ -18,10 +18,10 @@ function App() {
           <Route path='/product/:id' element={<ProductPage/>}/>
         </Routes>
       </BrowserRouter>
-      <footer>
+      {/* <footer>
         <p>This is not a real store.</p>
         <p>App was made with DummyJSON API</p>
-      </footer>
+      </footer> */}
     </div>
   );
 }

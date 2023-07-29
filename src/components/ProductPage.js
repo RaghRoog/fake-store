@@ -31,6 +31,24 @@ export default function ProductPage() {
 
     return(
         <div className="product-page">
+            <div className="product-info">
+                <h2 className="product-name">{product.title}</h2>
+                <p className="product-desc">{product.description}</p>
+                <p className="price">${product.price}</p>
+                <div className="buttons-container">
+                    <div className="btns-container">
+                        <div className="top">
+                            <button>-</button>
+                            <div>1</div>
+                            <button>+</button>
+                        </div>
+                        <div className="bottom">
+                            <button>Buy now</button>
+                            <button>To cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="imgs-container">
                 {imgs.map((item, index) => (
                     <img className="slide" src={item} key={index} 
@@ -38,20 +56,6 @@ export default function ProductPage() {
                 ))}
                 <a className="next" onClick={indexUp}>&#10095;</a>
                 <a className="prev" onClick={indexDown}>&#10094;</a>
-            </div>
-            <div className="product-info">
-                <h2 className="product-name">{product.title}</h2>
-                <p className="product-desc">{product.description}</p>
-                <p className="price">${product.price}</p>
-                <div className="buttons-container">
-                    <div className="quantity-controls">
-                        <button>+</button>
-                        <div>1</div>
-                        <button>-</button>
-                    </div>
-                    <button>Buy now</button>
-                    <button>To cart</button>
-                </div>
             </div>
         </div>
     )

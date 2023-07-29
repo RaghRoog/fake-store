@@ -1,13 +1,13 @@
 .product-page{
-    border: 2px solid red;
     display: flex;
     gap: 10%;
     justify-content: center;
+    margin-top: 32px;
     .imgs-container{
-        max-width: 40%;
+        width: 30%;
+        height: 300px;
         position: relative;
-        margin: auto;
-        border: 2px solid green;
+        padding: 12px;
         .slide{
             width: 100%;
             height: 100%;
@@ -37,6 +37,63 @@
     }
     .product-info{
         width: 40%;
-        border: 2px solid orange;
+        height: fit-content;
+        padding: 12px;
+        .product-name{
+            font-size: 2.3rem;
+        }
+        .product-desc, .price{
+            font-size: 1.2rem;
+        }
+        .btns-container{
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+            .top{
+                margin-top: 12px;
+                display: flex;
+                div{
+                    width: 48px;
+                    height: 48px;
+                    font-size: 1.2rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                button{
+                    width: 48px;
+                    height: 48px;
+                    font-size: 1.2rem;
+                    background-color: $mainColor;
+                    border-radius: 10px;
+                    color: white;
+                    font-weight: bold;
+                    transition: ease-in-out .3s;
+                    &:hover{
+                        color: $mainColor;
+                        background-color: white;
+                        border: 2px solid $mainColor;
+                    }
+                }
+            }
+            .bottom{
+                display: flex;
+                gap: 12px;
+                margin-top: 12px;
+                button{
+                    font-size: 1.2rem;
+                    border-radius: 10px;
+                    border: 2px solid $mainColor;
+                    transition: ease-in-out .3s;
+                    color: $mainColor;
+                    padding: 12px;
+                    &:hover{
+                        background-color: $mainColor;
+                        border: none;
+                        color: white;
+                    }
+                }
+            }
+        }
     }
 }
