@@ -35,7 +35,7 @@ export default function ProductPage() {
             <div className="product-info">
                 <h2 className="product-name">{product.title}</h2>
                 <p className="product-desc">{product.description}</p>
-                <p className="price">${product.price}</p>
+                <p className="price">Price: ${product.price}</p>
                 <p className="stock" style={{color: product.stock > 1 ? 'rgb(174, 240, 41)' : 'red'}}>
                     {product.stock > 1 ? 'In stock' : 'Out of stock'}
                     </p>
