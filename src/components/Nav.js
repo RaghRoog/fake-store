@@ -37,7 +37,10 @@ export default function Nav() {
                 </div>
             </div>
             <Link to='/'><p className="name">FakeStore</p></Link>
-            <div className="account">Account</div>
+            <div className="account-and-cart">
+                <img src="/imgs/account.svg" alt="account" />
+                <img src="/imgs/cart.svg" alt="cart" />
+            </div>
         </div>
     )
 }
