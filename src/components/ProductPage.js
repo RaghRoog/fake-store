@@ -32,6 +32,16 @@ export default function ProductPage() {
 
     return(
         <div className="product-page">
+            <div className="slides">
+                <a className="prev" onClick={indexDown}>&#10094;</a>
+                <div className="imgs-container">
+                    {imgs.map((item, index) => (
+                        <img className="slide" src={item} key={index} 
+                        style={{ display: index === slideIndex - 1 ? 'block' : 'none' }}/>
+                    ))}
+                </div>
+                <a className="next" onClick={indexUp}>&#10095;</a>
+            </div>
             <div className="product-info">
                 <h2 className="product-name">{product.title}</h2>
                 <p className="product-desc">{product.description}</p>
@@ -56,16 +66,6 @@ export default function ProductPage() {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="slides">
-                <a className="prev" onClick={indexDown}>&#10094;</a>
-                <div className="imgs-container">
-                    {imgs.map((item, index) => (
-                        <img className="slide" src={item} key={index} 
-                        style={{ display: index === slideIndex - 1 ? 'block' : 'none' }}/>
-                    ))}
-                </div>
-                <a className="next" onClick={indexUp}>&#10095;</a>
             </div>
         </div>
     )
