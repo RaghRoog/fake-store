@@ -5,12 +5,12 @@ export default function ProductPage() {
 
     let [product, setProduct] = useState({})
     let [imgs, setImgs] = useState([])
+    let [quantity, setQuantity] = useState(1)
 
     useEffect(()=>{
         getData(`https://dummyjson.com/products/${localStorage.getItem('productid')}`)
          .then(res => {
             setProduct(res)
-            console.log(res)
             setImgs(res.images)
          })
     }, [])
@@ -42,13 +42,17 @@ export default function ProductPage() {
                 <div className="buttons-container">
                     <div className="btns-container">
                         <div className="top">
-                            <button>-</button>
-                            <div>1</div>
-                            <button>+</button>
+                            <button onClick={()=>{
+                                if(quantity>1){
+                                    setQuantity(quantity-=1)
+                                }
+                            }}>-</button>
+                            <div>{quantity}</div>
+                            <button onClick={()=>setQuantity(quantity+=1)}>+</button>
                         </div>
                         <div className="bottom">
                             <button>Buy now</button>
-                            <button>To cart</button>
+                            <button onClick={()=>console.log(`${product.title} x ${quantity}`)}>To cart</button>
                         </div>
                     </div>
                 </div>
