@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import getData from "../functions/getData"
+import displayCart from "../functions/displayCart"
 
 export default function ProductPage() {
 
@@ -62,7 +63,7 @@ export default function ProductPage() {
                         </div>
                         <div className="bottom">
                             <button>Buy now</button>
-                            <button onClick={()=>console.log(`${product.title} x ${quantity}`)}>To cart</button>
+                            <button onClick={()=>displayCart(true)}>To cart</button>
                         </div>
                     </div>
                 </div>

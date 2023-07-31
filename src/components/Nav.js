@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import displayCart from "../functions/displayCart"
 
 export default function Nav() {
 
@@ -38,8 +39,13 @@ export default function Nav() {
             </div>
             <Link to='/'><p className="name">FakeStore</p></Link>
             <div className="account-and-cart">
-                <img src="/imgs/account.svg" alt="account" />
-                <img src="/imgs/cart.svg" alt="cart" />
+                <div className="account">
+                    <img src="/imgs/account.svg" alt="account" />
+                </div>
+                <div className="cart-container">
+                    <img onClick={()=>displayCart(false)} src="/imgs/cart.svg" alt="cart" />
+                    <div className="cart"></div>
+                </div>
             </div>
         </div>
     )
