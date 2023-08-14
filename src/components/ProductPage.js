@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import getData from "../functions/getData"
 import displayCart from "../functions/displayCart"
 
-export default function ProductPage() {
+export default function ProductPage({ getCart }) {
 
     let [product, setProduct] = useState({})
     let [imgs, setImgs] = useState([])
@@ -28,6 +28,28 @@ export default function ProductPage() {
     function indexDown() {
         if(slideIndex > 1){
             setSlideIndex(slideIndex-1)
+        }
+    }
+
+    function addToCart(id, name, price, img, quantity) {
+        let cartItem = {
+            id: id,
+            name: name,
+            price: price,
+            img: img,
+            quantity: quantity
+        }
+        let currentCart = JSON.parse(localStorage.getItem('cart'))
+        if(currentCart.some(obj => obj.id == product.id)){
+            for(let i = 0; i < currentCart.length; i++){
+                if(currentCart[i].id === product.id){
+                    currentCart[i].quantity += quantity
+                }
+            }
+            getCart(currentCart)
+        }else{
+            currentCart.push(cartItem)
+            getCart(currentCart)
         }
     }
 
@@ -63,8 +85,12 @@ export default function ProductPage() {
                         </div>
                         <div className="bottom">
                             <button>Buy now</button>
-                            <button onClick={()=>displayCart(true)}>To cart</button>
+                            <button onClick={()=>{
+                                displayCart(true)
+                                addToCart(product.id, product.title, product.price, product.thumbnail, quantity)
+                                }}>To cart</button>
                         </div>
+                        <button onClick={()=>localStorage.removeItem('cart')}>reset</button>
                     </div>
                 </div>
             </div>
